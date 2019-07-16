@@ -2,17 +2,21 @@ package br.com.targettrust.exerciciobanco.model;
 
 import br.com.targettrust.exerciciobanco.enumeration.TipoMovimentoEnum;
 
+import java.time.LocalDateTime;
+
 public class Movimento {
+
+    private TipoMovimentoEnum tipo;
+    private Double valor;
+    private String descricao;
+    private LocalDateTime dataMovimento;
 
     public Movimento(TipoMovimentoEnum tipo, Double valor, String descricao) {
         this.tipo = tipo;
         this.valor = valor;
         this.descricao = descricao;
+        this.dataMovimento = LocalDateTime.now();
     }
-
-    private TipoMovimentoEnum tipo;
-    private Double valor;
-    private String descricao;
 
     public TipoMovimentoEnum getTipo(){
         return tipo;
@@ -36,6 +40,14 @@ public class Movimento {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public LocalDateTime getDataMovimento() {
+        return dataMovimento;
+    }
+
+    public void setDataMovimento(LocalDateTime dataMovimento) {
+        this.dataMovimento = dataMovimento;
     }
 
     public String getDescricaoCompleta(){
